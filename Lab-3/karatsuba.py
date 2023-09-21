@@ -1,3 +1,4 @@
+import time
 # def karatsuba(number1,number2):
 #  res = 0
 #  number2 = number2 % 10
@@ -45,7 +46,34 @@ def multiply_integer(a, b):
     result = str(sum(int(p) for p in partial_products))
     return result
 
+
+
+def multiply_string(a, b):
+    result = 0
+    partial_product  = []
+    for i in range( len(b)-1, -1 , -1):
+      carry = 0 
+      partial_products = ""
+      for j in range(len(a)-1 , -1,-1): 
+         product = int(b) * int(a[j]) + carry        # multiply the last elemnt of b with the a[j] elmnt and add the carry
+         carry = product // 10                # carry = product / 10,,, this will give an answer if product > 9 only
+         partial_product = str(product % 10) + partial_product   
+      if carry > 0:
+           partial_product = carry + partial_product
+        
+      partial_product = partial_product + "0"*(len(b_str)-1-i)
+      partial_products.append(partial_product)
+
+    result = str(sum(int(p) for p in partial_products))
+    return result
+
+
 # Test the function
-result = multiply_integer(1234, 5678)
+startTime = time.time()
+result = multiply_integer(str(1234), str(5678))
+endTime = time.time()
+
+totalTime = endTime - startTime
+print("the running time of the algorithm is : ",totalTime)
 print(result)
 

@@ -1,12 +1,9 @@
 import time
 import random
+import functions
 
 #    FUNCTION TO GENERATE AN RANDOM ARRAY
-def RandomArrayGenerater(array,min,max,n):
- for i in range (0, n):
-    num = random. randint (min, max)
-    array. append (num)
- return array
+
 
 #    SELECTION SORT ALGORITHM TO SORT THE ARRAY IN ASCENDING ORDER
 
@@ -25,20 +22,13 @@ def SelectionSort(array,start, end):
 
 #  For writing the elements of array in the file each element on one line
 
-def writeElementsInFile(array):
-  file_name = "SortedInsertionSort.csv"
-  with open(file_name, "w") as f:
-    for elementOfArray in array:
-      f.write(str(elementOfArray) + "\n")
-  f.close()
-
    
 
 array = []
 min = 0
 max = 30000
 n = 40
-array = RandomArrayGenerater(array,min,max,n)
+array = functions.RandomArrayGenerater(array,min,max,n)
 
 # STARTING AND ENDING INDEX OF ARRAY
 start = 0
@@ -50,7 +40,7 @@ SelectionSort(array,start,end)          # PROGRAM FOR SORTING
 
 end_time = time.time()               # ENDING TIME FOR THE SORTING ALGO
 runtime = end_time - start_time      # CALCULATING THE RUNTIME OF THE ALGO
-writeElementsInFile(array)
+functions.writeElementsInFile(array)
 
 print("----------------------------------------------")
 print("----------------------------------------------")
