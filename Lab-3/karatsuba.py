@@ -1,26 +1,5 @@
 import time
-# def karatsuba(number1,number2):
-#  res = 0
-#  number2 = number2 % 10
-#  while(number2 > 0):
-#    num2 = number2 % 10 
-#    num1 = number1 % 10 
-#    res = num1 * num2
-#    print(res)
-#    if( res >= 10 ):
-#     carry = res / 10 
-#     newResult= res % 10
-#     res = (carry + newResult )% 10
 
-   
-    
-#  return res
-# number1 = 22
-# number2 = 45
-# # last1 = len(number1)
-# # last2 = len(number2)
-# # print(last)
-# print("Karatsuba result : ",karatsuba(number1,number2))
 
 def multiply_integer(a, b):
     result = 0
@@ -68,12 +47,51 @@ def multiply_string(a, b):
     return result
 
 
-# Test the function
+def Karatsuba_Recursive(x, y):
+    if x < 10 or y < 10:
+        return x * y
+
+    
+    n = max(len(str(x)), len(str(y)))
+    n_half = n // 2
+    print("n half = ",n_half)
+    print("n is = ",n)
+
+    # Split the input numbers
+    
+
+# For example, if x = 12345678 and n_half = 4, then:
+# 10**n_half is 10,000.
+# divmod(x, 10**n_half) is equivalent to divmod(12345678, 10000).
+# The quotient is 1234, which is stored in a.
+# The remainder is 5678, which is stored in b.
+
+
+    a, b = divmod(x, 10**n_half)
+    print("value of a = ",a,"The value of b =",b)
+    c, d = divmod(y, 10**n_half)
+    print("value of c = ",c,"The value of d =",d)
+    # Recursively compute the three products
+    ac = Karatsuba_Recursive(a, c)
+    bd = Karatsuba_Recursive(b, d)
+    ad_bc = Karatsuba_Recursive((a + b), (c + d)) - ac - bd
+
+    # Combine the results using the Karatsuba formula
+    result = ac * 10**(2*n_half) + ad_bc * 10**n_half + bd
+
+    return result
+
+
+
+
+
+###########################  Taking the input for testing  ##############################
+
 startTime = time.time()
-result = multiply_integer(str(1234), str(5678))
+result = Karatsuba_Recursive(122334, 5678)
 endTime = time.time()
 
 totalTime = endTime - startTime
 print("the running time of the algorithm is : ",totalTime)
-print(result)
+print("Result is :",result)
 
