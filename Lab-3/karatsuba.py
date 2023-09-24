@@ -54,8 +54,8 @@ def Karatsuba_Recursive(x, y):
     
     n = max(len(str(x)), len(str(y)))
     n_half = n // 2
-    print("n half = ",n_half)
-    print("n is = ",n)
+    # print("n half = ",n_half)
+    # print("n is = ",n)
 
     # Split the input numbers
     
@@ -68,10 +68,10 @@ def Karatsuba_Recursive(x, y):
 
 
     a, b = divmod(x, 10**n_half)
-    print("value of a = ",a,"The value of b =",b)
+    # print("value of a = ",a,"The value of b =",b)
     c, d = divmod(y, 10**n_half)
-    print("value of c = ",c,"The value of d =",d)
-    # Recursively compute the three products
+    # print("value of c = ",c,"The value of d =",d)
+    # Recursively compute the three products 
     ac = Karatsuba_Recursive(a, c)
     bd = Karatsuba_Recursive(b, d)
     ad_bc = Karatsuba_Recursive((a + b), (c + d)) - ac - bd
@@ -80,7 +80,7 @@ def Karatsuba_Recursive(x, y):
     result = ac * 10**(2*n_half) + ad_bc * 10**n_half + bd
 
     return result
-
+ 
 
 
 
@@ -88,7 +88,7 @@ def Karatsuba_Recursive(x, y):
 ###########################  Taking the input for testing  ##############################
 
 startTime = time.time()
-result = Karatsuba_Recursive(122334, 5678)
+result = Karatsuba_Recursive(123445789234537796543, 567863637972358078363)
 endTime = time.time()
 
 totalTime = endTime - startTime

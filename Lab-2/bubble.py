@@ -11,6 +11,7 @@ def BubbleSort(array,start, end):
                        # SWAPPING
                       array[j], array[j+1] = array[j+1], array[j]      
                       swapped = True
+        print("array at loop iteration  : ",i+1, " is : ",array)
         if(swapped == False):
            break
                 
@@ -21,6 +22,7 @@ min = 0
 max = 30000
 n = 100
 array = functions.RandomArrayGenerater(array,min,max,n)
+array= [9,8,7,6,4,3,2,1]
 
 # STARTING AND ENDING INDEX OF ARRAY
 start = 0
