@@ -2,13 +2,13 @@ import random
 import time
 
 def RandomArray(size):
-    return [random.randint(0, 100000) for _ in range(size)]
+    return [random.randint(0, 20) for _ in range(size)]
 
 def MergeSort(arr, start, end):
     if start < end:
         mid = (start + end) // 2
-        MergeSort(arr, start, mid)
-        MergeSort(arr, mid + 1, end)
+        
+        
         Merge(arr, start, mid, end)
 
 def Merge(arr, p, q, r):
@@ -37,7 +37,7 @@ def Merge(arr, p, q, r):
         j += 1
         k += 1
 
-array = RandomArray(100)
+array = RandomArray(8)
 
 start_time = time.time()
 MergeSort(array, 0, len(array)-1)

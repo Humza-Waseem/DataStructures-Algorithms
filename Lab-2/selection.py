@@ -10,7 +10,10 @@ import functions
 def SelectionSort(array,start, end): 
 
  for i in range(0,len(array)-1 , 1):
+    print("Step : ",i+1)
+    print("________________________")
     minimum = array[i]
+    print("Minimum value at step :",i + 1," is ",minimum)
     for j in range(i +1,len(array),1):
         if minimum > array[j]:
             minimum = array[j]    #   array [i+1]  = minimum that is array[i]   in the first case i = 0
@@ -19,6 +22,9 @@ def SelectionSort(array,start, end):
             temp = array[i]
             array[i] = minimum
             array[j] = temp
+        print("array at Step : ",i+1, " is ",array)
+        print("________________________")
+        print("")    
 
 #  For writing the elements of array in the file each element on one line
 
@@ -29,6 +35,7 @@ min = 0
 max = 30000
 n = 40
 array = functions.RandomArrayGenerater(array,min,max,n)
+array =  [5,43,76,2,98,23,12,32]
 
 # STARTING AND ENDING INDEX OF ARRAY
 start = 0
