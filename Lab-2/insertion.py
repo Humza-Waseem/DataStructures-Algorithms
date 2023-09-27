@@ -4,16 +4,16 @@ import functions
 
 
 
-def InsertionSort(array,start,end):
-  for i in range(start,end):
-    key = array[i]                    
-    j = i-1                          
-    while( j>= 0 and key < array[j]):
-      array[j+1] = array[j]          
-      j-=1
-    array[j + 1] = key       
-    print("array after key replacement =  ",array)
-  return array
+# def InsertionSort(array,start,end):
+#   for i in range(start,end):
+#     key = array[i]                    
+#     j = i-1                          
+#     while( j>= 0 and key > array[j]):
+#       array[j+1] = array[j]          
+#       j-=1
+#     array[j + 1] = key       
+#     print("array after key replacement =  ",array)
+#   return array
 
 def InsertionSort(array,start,end):
   for i in range(1, len(array)):       # start with i = 1 to length of array 
@@ -28,7 +28,7 @@ def InsertionSort(array,start,end):
 
     # print("value of j before while loop : ",j)
     # print("value of i before while loop : ",i)
-    while j >= 0 and array[j] > key:   # while  j is greater than or equal to 0 and array[j = 0] greater than key value 
+    while j >= 0 and array[j] < key:   # while  j is greater than or equal to 0 and array[j = 0] greater than key value 
       array[j+1] = array[j]              # swap to array[0+1] equal to array[0]
 
       j -= 1                         # j = j-1
