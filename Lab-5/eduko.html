@@ -1,0 +1,613 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Eduko</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="/material-content/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="/material-content/css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="/material-content/css/style.min.css" rel="stylesheet">
+    
+
+    <style type="text/css">
+        html,
+        body,
+        header,
+        .carousel {
+            height: 60vh;
+        }
+
+        .box {
+            display: flex;
+        }
+
+        .right {
+            flex: 1; /* grow */
+            /*border: 1px dashed #f0f;*/
+        }
+
+        @media only screen and (max-width: 600px) {
+
+            .left {
+                flex: 0 0 40px; /* do not grow, do not shrink, start at 250px */
+                /*border: 1px dashed #00f;*/
+            }
+        }
+
+        @media only screen and (min-width: 601px) {
+
+            .left {
+                flex: 0 0 290px; /* do not grow, do not shrink, start at 250px */
+                /*border: 1px dashed #00f;*/
+            }
+        }
+        /*header{
+            height: 80px !important;
+        }*/
+        @media (max-width: 740px) {
+
+            html,
+            body,
+            header,
+            .carousel {
+                height: 100vh;
+            }
+        }
+
+        @media (min-width: 800px) and (max-width: 850px) {
+
+            html,
+            body,
+            header,
+            .carousel {
+                height: 100vh;
+            }
+        }
+
+        @media (min-width: 800px) and (max-width: 850px) {
+            .navbar:not(.top-nav-collapse) {
+                background: #929FBA !important;
+                height:15vh;
+            }
+        }
+    </style>
+</head>
+<body style="background-color:#fafafa">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .widthc {
+            max-width: 100% !important;
+        }
+
+        body {
+        }
+
+        .no-scroll-y {
+            overflow-y: hidden;
+        }
+
+        /* Preloader */
+        .ctn-preloader {
+            align-items: center;
+            cursor: none;
+            display: flex;
+            height: 100%;
+            justify-content: center;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            z-index: 999999;
+        }
+
+            .ctn-preloader .animation-preloader {
+                position: absolute;
+                z-index: 999999;
+            }
+
+                /* Spinner cargando */
+                .ctn-preloader .animation-preloader .spinner {
+                    animation: spinner 1s infinite linear;
+                    border-radius: 50%;
+                    border: 3px solid rgba(0, 0, 0, 0.2);
+                    border-top-color: #000000; /* No se identa por orden alfabetico para que no lo sobre-escriba */
+                    height: 9em;
+                    margin: 0 auto 3.5em auto;
+                    width: 9em;
+                }
+
+                /* Texto cargando */
+                .ctn-preloader .animation-preloader .txt-loading {
+                    font: bold 5em 'Montserrat', sans-serif;
+                    text-align: center;
+                    user-select: none;
+                }
+
+                    .ctn-preloader .animation-preloader .txt-loading .letters-loading:before {
+                        animation: letters-loading 4s infinite;
+                        color: #000000;
+                        content: attr(data-text-preloader);
+                        left: 0;
+                        opacity: 0;
+                        position: absolute;
+                        top: 0;
+                        transform: rotateY(-90deg);
+                    }
+
+                    .ctn-preloader .animation-preloader .txt-loading .letters-loading {
+                        color: rgba(0, 0, 0, 0.2);
+                        position: relative;
+                    }
+
+                        .ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(2):before {
+                            animation-delay: 0.2s;
+                        }
+
+                        .ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(3):before {
+                            animation-delay: 0.4s;
+                        }
+
+                        .ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(4):before {
+                            animation-delay: 0.6s;
+                        }
+
+                        .ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(5):before {
+                            animation-delay: 0.8s;
+                        }
+
+                        .ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(6):before {
+                            animation-delay: 1s;
+                        }
+
+                        .ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(7):before {
+                            animation-delay: 1.2s;
+                        }
+
+                        .ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(8):before {
+                            animation-delay: 1.4s;
+                        }
+
+            .ctn-preloader .loader-section {
+                background-color: #ffffff;
+                height: 100%;
+                position: fixed;
+                top: 0;
+                width: calc(50% + 1px);
+            }
+
+                .ctn-preloader .loader-section.section-left {
+                    left: 0;
+                }
+
+                .ctn-preloader .loader-section.section-right {
+                    right: 0;
+                }
+
+        /* Efecto de fade en la animación de cargando */
+        .loaded .animation-preloader {
+            opacity: 0;
+            transition: 0.3s ease-out;
+        }
+
+        /* Efecto de cortina */
+        .loaded .loader-section.section-left {
+            transform: translateX(-101%);
+            transition: 0.7s 0.3s all cubic-bezier(0.1, 0.1, 0.1, 1.000);
+        }
+
+        .loaded .loader-section.section-right {
+            transform: translateX(101%);
+            transition: 0.7s 0.3s all cubic-bezier(0.1, 0.1, 0.1, 1.000);
+        }
+
+        /* Animación del preloader */
+        @keyframes spinner {
+            to {
+                transform: rotateZ(360deg);
+            }
+        }
+
+        /* Animación de las letras cargando del preloader */
+        @keyframes letters-loading {
+            0%,
+            75%,
+            100% {
+                opacity: 0;
+                transform: rotateY(-90deg);
+            }
+
+            25%,
+            50% {
+                opacity: 1;
+                transform: rotateY(0deg);
+            }
+        }
+
+        /* Tamaño de portatil hacia atras (portatil, tablet, celular) */
+        @media screen and (max-width: 767px) {
+            /* Preloader */
+            /* Spinner cargando */
+            .ctn-preloader .animation-preloader .spinner {
+                height: 8em;
+                width: 8em;
+            }
+            /* Texto cargando */
+            .ctn-preloader .animation-preloader .txt-loading {
+                font: bold 3.5em 'Montserrat', sans-serif;
+            }
+        }
+
+        @media screen and (max-width: 500px) {
+            /* Prelaoder */
+            /* Spinner cargando */
+            .ctn-preloader .animation-preloader .spinner {
+                height: 7em;
+                width: 7em;
+            }
+            /* Texto cargando */
+            .ctn-preloader .animation-preloader .txt-loading {
+                font: bold 2em 'Montserrat', sans-serif;
+            }
+        }
+    </style>
+    <!-- Preloader -->
+    
+    <style>
+        .top-nav-collapse {
+            background-color: #3F51B5;
+        }
+    </style>
+    <header>
+        <!-- Navbar -->
+
+        <!-- Navbar -->
+
+
+            <nav class="navbar fixed-top navbar-expand-lg navbar-dark " >
+                <div class="container ">
+                    <!-- Brand -->
+                    <a class="navbar-brand" href="http://eduko.spikotech.com" target="_blank">
+                        <span style="font-weight:bolder">EDUKO</span>
+                    </a>
+                    <!-- Collapse -->
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <!-- Links -->
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <!-- Left -->
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Course/Index">
+                                    Course Catalogue
+
+                                </a>
+                            </li>
+
+                        </ul>
+                        <ul class="navbar-nav my-2">
+                            
+
+
+
+<li class="nav-item"><a class="nav-link " href="/Account/Register" id="registerLink">Register</a></li>
+<li class="nav-item"><a class="nav-link " href="/Account/Login" id="loginLink">Login</a></li>
+
+
+
+
+
+
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <!--Carousel Wrapper-->
+            <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
+                <!--Indicators-->
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-1z" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-1z" data-slide-to="1"></li>
+                    <li data-target="#carousel-example-1z" data-slide-to="2"></li>
+                </ol>
+                <!--/.Indicators-->
+                <!--Slides-->
+                <div class="carousel-inner" role="listbox">
+                    <!--First slide-->
+                    <div class="carousel-item active">
+                        <div class="view" style="background-image: url('../../Images/c1.png'); background-repeat: no-repeat; background-size: cover;">
+                            <!-- Mask & flexbox options-->
+                            <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+                                <!-- Content -->
+                                <div class="text-center white-text mx-5 wow fadeIn">
+                                    <h1 class="mb-4">
+                                        <strong>Best Platform to Manage the Course</strong>
+                                    </h1>
+                                    <p>
+                                        <strong>Manage your classes with online presence</strong>
+                                    </p>
+                                    <p class="mb-4 d-none d-md-block">
+                                        <strong>
+                                            Create your own course and make it more productive
+                                        </strong>
+                                    </p>
+
+                                </div>
+                                <!-- Content -->
+                            </div>
+                            <!-- Mask & flexbox options-->
+                        </div>
+                    </div>
+                    <!--/First slide-->
+                    <!--Second slide-->
+                    <div class="carousel-item">
+                        <div class="view" style="background-image: url('../../Images/c2.png'); background-repeat: no-repeat; background-size: cover;height:inherit">
+                            <!-- Mask & flexbox options-->
+                            <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+                                <!-- Content -->
+                                <div class="text-center white-text mx-5 wow fadeIn">
+                                    <h1 class="mb-4">
+                                        <strong>Available on Every Device</strong>
+                                    </h1>
+                                    <p>
+                                        <strong>Eduko is available on Mobile and Desktop Devices</strong>
+                                    </p>
+                                    <p class="mb-4 d-none d-md-block">
+                                        <strong>
+                                            The most advanced system to make the course presence on the Web and Mobile devices.
+                                        </strong>
+                                    </p>
+
+                                </div>
+                                <!-- Content -->
+                            </div>
+                            <!-- Mask & flexbox options-->
+                        </div>
+                    </div>
+                    <!--/Second slide-->
+                    <!--Third slide-->
+                    <div class="carousel-item">
+                        <div class="view" style="background-image: url('../../Images/c3.png'); background-repeat: no-repeat; background-size: cover;">
+                            <!-- Mask & flexbox options-->
+                            <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+                                <!-- Content -->
+                                <div class="text-center white-text mx-5 wow fadeIn">
+                                    <h1 class="mb-4">
+                                        <strong>Online Assignment Submission</strong>
+                                    </h1>
+                                    <p>
+                                        <strong>Forget the paper work</strong>
+                                    </p>
+                                    <p class="mb-4 d-none d-md-block">
+                                        <strong>
+                                            The integrated API helps the students to manage their assignments online
+                                        </strong>
+                                    </p>
+
+                                </div>
+                                <!-- Content -->
+                            </div>
+                            <!-- Mask & flexbox options-->
+                        </div>
+                    </div>
+                    <!--/Third slide-->
+                </div>
+                <!--/.Slides-->
+                <!--Controls-->
+                <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+                <!--/.Controls-->
+            </div>
+            <!--/.Carousel Wrapper-->
+    </header>
+    <div class="min-vh-100 d-flex flex-column justify-content-between">
+        <!--Main layout-->
+        <div class="container body-content">
+            
+
+
+<style>
+    .body-content {
+        margin-top: 30px !important;
+    }
+</style>
+<div id="courseData"></div>
+
+
+
+
+
+
+
+
+
+
+        </div>
+        <!--Main layout-->
+        <!--Footer-->
+            <footer class=" page-footer text-center font-small mt-4 wow fadeIn" style="z-index:2000; position:relative">
+                <!--Call to action-->
+                <div class="pt-4">
+
+                    <a class="btn btn-outline-white" href="/Course/Index" target="_blank" role="button">
+                        Start Learning
+                        <i class="fas fa-graduation-cap ml-2"></i>
+                    </a>
+                </div>
+                <!--/.Call to action-->
+                <hr class="my-4">
+                <!-- Social icons -->
+                <div class="pb-4">
+                    <a href="#" target="_blank">
+                        <i class="fab fa-facebook-f mr-3"></i>
+                    </a>
+                    <a href="#" target="_blank">
+                        <i class="fab fa-twitter mr-3"></i>
+                    </a>
+                    <a href="#" target="_blank">
+                        <i class="fab fa-youtube mr-3"></i>
+                    </a>
+                    <a href="#" target="_blank">
+                        <i class="fab fa-google-plus-g mr-3"></i>
+                    </a>
+
+                </div>
+                <!-- Social icons -->
+                <!--Copyright-->
+                <div class="footer-copyright py-3">
+                    © 2023 Copyright:
+                    Spike Technologies
+                </div>
+                <!--/.Copyright-->
+            </footer>
+    </div>
+    <!--/.Footer-->
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="/material-content/js/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="/material-content/js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="/material-content/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="/material-content/js/mdb.min.js"></script>
+    <!-- Initializations -->
+    
+    <script type="text/javascript" src="/Scripts/Extensions/jquery.validate.min.js"></script>
+    <script src="/Scripts/kendo.web.min.js"></script>
+    
+
+
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.117/styles/kendo.common-material.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.117/styles/kendo.material.min.css" />
+
+
+    <script type="text/javascript" src="/Scripts/Extensions/bootstrap-notify.min.js"></script>
+
+    <script type="text/javascript" src="/Scripts/Custom/Accounts.js"></script>
+    <script type="text/javascript" src="/Scripts/Custom/common.js"></script>
+    <script type="text/javascript" src="/Scripts/Custom/Assignment.js"></script>
+    <script type="text/javascript">
+        // Animations initialization
+        new WOW().init();</script>
+
+    <script>
+        $(document).ready(function () {
+            if (isAuthenticated()) {
+                $('li[name=auth]').show();
+                $('li[name=noauth]').hide();
+            }
+            else {
+                $('li[name=auth]').hide();
+                $('li[name=noauth]').show();
+            }
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+
+            //setTimeout(function () {
+            //    $('#ctn-preloader').addClass('loaded');
+            //    // Una vez haya terminado el preloader aparezca el scroll
+            //    $('body').removeClass('no-scroll-y');
+
+            //    if ($('#ctn-preloader').hasClass('loaded')) {
+            //        // Es para que una vez que se haya ido el preloader se elimine toda la seccion preloader
+            //        $('#preloader').delay(1000).queue(function () {
+            //            $(this).remove();
+            //        });
+            //    }
+            //}, 3000);
+
+        });
+
+        $(document).ready(function () {
+
+            if (isAuthenticated()) {
+                $('li[name=auth]').show();
+                $('li[name=noauth]').hide();
+            }
+            else {
+                $('li[name=auth]').hide();
+                $('li[name=noauth]').show();
+            }
+        });
+    </script>
+    
+    <script type="text/javascript" src="/Scripts/Custom/Course.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.get("/api/CourseApi/listCourses?s=", function (data, status) {
+                var cc = '<div class="row">';
+                for (i = 0; i < data.length; i++) {
+                    var des = data[i].Description;
+                    var maxLength = 98 // maximum number of characters to extract
+
+                    //trim the string to the maximum length
+                    var trimmedString = des.substr(0, maxLength);
+
+                    //re-trim if we are in the middle of a word
+                    trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, trimmedString.lastIndexOf(" ")))
+                    trimmedString = trimmedString + "...";
+                    var card = '<div class="col-md-4 mb-4 d-flex align-items-stretch" >' +
+                        '<div class="card">' +
+                        '<div class="view">' +
+                        '<img height="200px" src="' + data[i].CourseThumbnailPhoto + '" class="card-img-top" alt="photo">' +
+                        '<a href="/Course/Details/' + data[i].CourseId + '">' +
+                        '<div class="mask rgba-white-slight"></div>' +
+                        '</a>' +
+                        '</div>' +
+                        '<div class="card-body text-center">' +
+                        '<h4 class="card-title ">' + data[i].Name + '</h4>' +
+                        ' <h7>' + data[i].InstructorName + '</h7> <br/>'+
+                        ' <h7 >' + data[i].Session + ' ' + data[i].Year+  '</h7>' +
+                        '<p style="height:57px" class="card-text ">' +
+                        trimmedString +
+                        '</p>' +
+                        '<a href="/Course/Details/' + data[i].CourseId + '" class="btn  btn-md waves-effect">Read More</a>' +
+                        '</div>' +
+
+                        '</div>' +
+                        '</div>';
+                    cc = cc + card;
+                    if (i != 0 && (i + 1) % 3 == 0) {
+                        cc = cc + '</div><div class="row">';
+                    }
+
+
+                    console.log(data[i].InstructorName);
+                }
+                if (data.length % 3 != 0) {
+                    cc = cc + '</div>';
+                }
+                $("#courseData").html(cc);
+                //alert("Data: " + data + "\nStatus: " + status);
+            });
+
+        });
+    </script>
+
+</body>
+</html>
