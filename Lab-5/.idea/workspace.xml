@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8b0af57-d568-4fbe-bdab-0a7167a49049" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/CRUD/ScrapingSaad.py" beforeDir="false" afterPath="$PROJECT_DIR$/CRUD/ScrapingSaad.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +30,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "F:/ThirdSemesterMaterials/DSA-LAB",
+    "last_opened_file_path": "F:/WebScrapping",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -158,6 +159,7 @@
       <workItem from="1696346480444" duration="1210000" />
       <workItem from="1696594237691" duration="11988000" />
       <workItem from="1696621227456" duration="179000" />
+      <workItem from="1696777234608" duration="734000" />
     </task>
     <servers />
   </component>
