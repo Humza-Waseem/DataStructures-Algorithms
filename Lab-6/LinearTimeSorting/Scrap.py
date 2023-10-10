@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-url = 'https://www.pakwheels.com/used-cars/automatic/57336'
+url = 'https://www.pakwheels.com/used-cars/'
 
 response = requests.get(url)
 
@@ -9,7 +9,7 @@ if response.status_code == 200:
     soup = BeautifulSoup(response.content, 'html.parser')
 
 
-    car_names = soup.find_all(class_='car-name ad-detail-path')
+    car_names = soup.find_all(class_='car-name ad-detail-path',)
 
     if car_names:
 
