@@ -4,7 +4,7 @@ import functions
 
 def BubbleSort(array,start, end):
     for i in range (start , end ):                     
-                                                       
+                                          
         for j in range (start , end - i):
             if (array[j] > array[j + 1] ):
                                                
@@ -16,6 +16,14 @@ def BubbleSort(array,start, end):
            break
                 
     return array
+
+def BubbleSort(array,start, end):
+    for i in range(start,end):
+        for j in range(start,end-i):
+            if( array[j]>array[j+1]):
+                array[j],array[j+1] = array[j+1],array[j]
+    return array
+
     
 array = []
 min = 0
@@ -40,7 +48,6 @@ print("Sorted Array by Bubble Sort is : ", array)
 print("----------------------------------------------")
 print("----------------------------------------------")
 print(f"Runtime is :",runtime," seconds When  n is :",n)
-
 
 
 

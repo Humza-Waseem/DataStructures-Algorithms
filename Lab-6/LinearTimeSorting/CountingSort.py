@@ -57,9 +57,10 @@ def generate_random_array(size, min_value, max_value):
 
 ####### give input
 array = generate_random_array(1000000, 1, 100000000)
+array = [-5, -10, 0, -3, 8, 5, -1, 10] 
 start = time.time()
 N_array = CountingSort(array)
 end = time.time()
 TotalTime = end-start
-# print(N_array)
+print(N_array)
 print("THe Time to sort the Array :",TotalTime)

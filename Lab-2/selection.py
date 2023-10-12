@@ -33,9 +33,9 @@ def SelectionSort(array,start, end):
 array = []
 min = 0
 max = 30000
-n = 40
+n = 5
 array = functions.RandomArrayGenerater(array,min,max,n)
-array =  [5,43,76,2,98,23,12,32]
+array =  [5,43,76,2,98,23]
 
 # STARTING AND ENDING INDEX OF ARRAY
 start = 0

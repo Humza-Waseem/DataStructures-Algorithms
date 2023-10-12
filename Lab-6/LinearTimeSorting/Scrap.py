@@ -1,12 +1,12 @@
 import requests
 from bs4 import BeautifulSoup
 
-url = 'https://www.pakwheels.com/used-cars/'
+url = 'https://www.pakwheels.com/used-cars/automatic/57336'
 
 response = requests.get(url)
 
 if response.status_code == 200:
-    soup = BeautifulSoup(response.content, 'html.parser')
+    soup = BeautifulSoup(response.content, 'html.parser') 
 
 
     car_names = soup.find_all(class_='car-name ad-detail-path',)
@@ -23,5 +23,4 @@ if response.status_code == 200:
         print("No car names found with the specified class.")
 else:
     print(f"Error: Unable to retrieve content. Status code: {response.status_code}")
-
 
