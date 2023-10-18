@@ -14,7 +14,7 @@ def counting_sort(arr, digit):
     i = n - 1
                                               # alternatively we can write  
                                               # for i in range(len(arr), -1,-1):
-    while i >= 0:                                      # b[--count{a[i]//pos]  % 10] = A[i]
+    while i >= 0:                                      # b[--count[a[i]//pos]  % 10] = A[i]
         index = arr[i] // digit
         output[count[index % 10] - 1] = arr[i]
         count[index % 10] -= 1
@@ -38,8 +38,8 @@ def radix_sort(arr):
 
 
 
-arr = [110, 45, 65, 50, 90, 602, 24, 2, 66]
-radix_sort(arr)
+arr = [110, 45, 65, -50, 90, -602, 24, 2, 66]
+counting_sort(arr)
 
 
 print(arr)

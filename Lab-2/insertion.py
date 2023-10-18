@@ -22,13 +22,13 @@ def InsertionSort(array,start,end):
     j = i-1                          # set j to i-1 so j will be equal to j= 0
     print("----------------------------------------------")
 
-    print("Step :",i,"when i = ",i," and j = ",j)
+    print("Step :",i,"when i = ",i," and j = ",j , " and key value is :",key)
     print("----------------------------------------------")
 
 
     # print("value of j before while loop : ",j)
     # print("value of i before while loop : ",i)
-    while j >= 0 and array[j] < key:   # while  j is greater than or equal to 0 and array[j = 0] greater than key value 
+    while j >= 0 and array[j] > key:   # while  j is greater than or equal to 0 and array[j = 0] greater than key value 
       array[j+1] = array[j]              # swap to array[0+1] equal to array[0]
 
       j -= 1                         # j = j-1
@@ -53,7 +53,7 @@ n = 10
 array = functions.RandomArrayGenerater(array,min,max,n)
 
 # STARTING AND ENDING INDEX OF array
-array= [5,43,76,2,98,23,12,32]
+array= [5,43,76,2]
 
 start = 1
 end = len(array) 
