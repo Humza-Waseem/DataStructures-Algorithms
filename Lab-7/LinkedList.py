@@ -45,18 +45,19 @@ def PrintLinkedList(head):     # here the head can be any element from which we 
         
         print (current.data)        
         current=current.next
-    
+
+
 
 def is_empty(self):
     if(self.head == null):
-        return True
-    else:
         return False
+    else:
+        return True
 
    
         
 
-#####  DRIVER CODE
+####  DRIVER CODE
 a = Node('H')
 b = Node('A')
 c = Node('M')
@@ -72,6 +73,10 @@ c.next = d
 d.next = e
 
 PrintLinkedList(a)
-print(is_empty)
+flag = is_empty
+if(flag == True):
+    print("flag True")
+else:
+    print("flag false")
 
 
