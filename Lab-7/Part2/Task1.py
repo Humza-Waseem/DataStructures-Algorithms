@@ -1,31 +1,29 @@
-def reverse_words(sentence):
+def reversedWords(sentence):
     stack = []
-    temp_word = ""
+    tempWord = ""
 
-    # Step 2: Traverse the sentence character by character
-    for char in sentence:
-        # Step 3: Build temporary word until a space is encountered
-        if char != ' ':
-            temp_word += char
+     
+    for i in range(0,len(sentence) ):
+        if(sentence[i] != ' '):
+            tempWord = tempWord + sentence[i]
         else:
-            # Step 4: Push the temporary word onto the stack
-            stack.append(temp_word)
-            temp_word = ""
+            stack.append(tempWord)
+            tempWord = ""
 
-    # Handle the last word in the sentence
-    stack.append(temp_word)
+    stack.append(tempWord)
 
-    reversed_sentence = ""
+    reversedSentence = ""
 
-    # Step 6: Pop elements from the stack to construct the reversed sentence
     while stack:
-        reversed_sentence += stack.pop() + ' '
+        reversedSentence += stack.pop() + ' '
 
-    return reversed_sentence.strip()
+    return reversedSentence  
 
 
-# Example usage
-input_sentence = "I am from University of Engineering and Technology Lahore"
-output_sentence = reverse_words(input_sentence)
+sentence = "I am from University of Engineering and Technology Lahore" # we pop from Lahore to I   
+          # 9<-8 <-7    <-6      <-5   <-4      <-3   <- 2   <-   1
+output_sentence = reversedWords(sentence)
 
 print(output_sentence)
+
+

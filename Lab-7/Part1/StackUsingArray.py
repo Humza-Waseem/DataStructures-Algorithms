@@ -15,7 +15,7 @@ class Stack:
         if not self.isEmpty():
             return self.stack.pop()
         else:
-            return 0
+            return "stack Empty"
     
     
     def peek(self):
@@ -24,20 +24,21 @@ class Stack:
         else:
             return "stack is Empty"
 
-    def size(self):
-        return len(self.stack)
+    # def size(self):
+    #     return len(self.stack)
 
 stack = Stack()
+# STACK EMPTY AT FIRST
 print(stack.isEmpty())
 
-
+# PUSHING THE ELEMENTS IN THE STACK
 stack.push(10)
 stack.push(20)
 stack.push(30)
 stack.push(40)
 stack.push(50)
 
-
+# POPPING THE ITEMS FROM STACK AS "LAST IN FIRST OUT"
 print(stack.peek())
 stack.pop()
 print(stack.peek())
