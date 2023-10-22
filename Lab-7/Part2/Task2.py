@@ -2,11 +2,6 @@ import math
 import os
 import sys
 
-
-
-
-
-
 class Stack:
     def __init__(self):
         self.stack = []

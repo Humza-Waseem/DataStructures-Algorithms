@@ -13,6 +13,7 @@ class  LinkList{
        }
        Node* insertNode(int index , int x);  // insert at a given index
        
+       
        Node* insertAtHead(int x){// to insert at start of list
           head.insert(x);
 
@@ -26,6 +27,7 @@ class  LinkList{
                 // return start
             } 
             else{
+
               start = start.next
             }
         }
