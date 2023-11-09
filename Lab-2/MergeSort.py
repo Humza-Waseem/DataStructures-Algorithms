@@ -6,14 +6,18 @@ def RandomArray(size):
 
 def MergeSort(arr, start, end):
     if start < end:
+
         mid = (start + end) // 2
-        
+
+        print("start Value : ",start)
+        print("end Value : ",end)
+        print("Mid Value : ",mid)
         
         Merge(arr, start, mid, end)
-
+                     0     2    5
 def Merge(arr, p, q, r):
-    left = arr[p:q+1]
-    right = arr[q+1:r+1]
+    left = arr[p:q+1]   0 : 2
+    right = arr[q+1:r+1]   3 : 5
 
     i = j = 0
     k = p
@@ -38,7 +42,7 @@ def Merge(arr, p, q, r):
         k += 1
 
 array = RandomArray(8)
-
+array = [6,5,4,3,2,1]
 start_time = time.time()
 MergeSort(array, 0, len(array)-1)
 end_time = time.time()

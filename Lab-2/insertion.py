@@ -53,7 +53,7 @@ n = 10
 array = functions.RandomArrayGenerater(array,min,max,n)
 
 # STARTING AND ENDING INDEX OF array
-array= [5,43,76,2]
+array= [5,20,1,2]
 
 start = 1
 end = len(array) 

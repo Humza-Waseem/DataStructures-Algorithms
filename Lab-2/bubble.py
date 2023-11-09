@@ -24,6 +24,11 @@ def BubbleSort(array,start, end):
                 array[j],array[j+1] = array[j+1],array[j]
     return array
 
+
+
+
+
+
     
 array = []
 min = 0
@@ -38,13 +43,13 @@ end = len(array)-1
 
 
 start_time = time.time()             # STARTING TIME OF THE PROGRAM
-BubbleSort(array,start,end)          # PROGRAM FOR SORTING
+newArray = BubbleSort(array,start,end)          # PROGRAM FOR SORTING
 end_time = time.time()               # ENDING TIME FOR THE SORTING ALGO
 runtime = end_time - start_time      # CALCULATING THE RUNTIME OF THE ALGO
 functions.writeElementsInFile(array)
 print("----------------------------------------------")
 print("----------------------------------------------")
-print("Sorted Array by Bubble Sort is : ", array)
+print("Sorted Array by Bubble Sort is : ", newArray)
 print("----------------------------------------------")
 print("----------------------------------------------")
 print(f"Runtime is :",runtime," seconds When  n is :",n)
@@ -52,3 +57,18 @@ print(f"Runtime is :",runtime," seconds When  n is :",n)
 
 
 
+
+
+
+
+# def BubbleSort(array,start,end):
+#     for i in range(start,end):
+#         for  j in range(start,end - 1):
+#             if(array[j] > array[j+1]):
+#                  array[j],array[j+1] = array[j+1],array[j]
+#     return array
+
+
+# array = [6,8,3,6,8,3,5,7,10,324,34]
+# NewArray = BubbleSort(array,0,11)
+# print(NewArray)

@@ -59,7 +59,7 @@ stack.push(3)
 
 stack.display()  
 
-print(stack.peek())  
+print("Peek Value  : ",stack.peek())  
 
 print("Pop:", stack.pop())   
 
