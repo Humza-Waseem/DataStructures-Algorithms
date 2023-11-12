@@ -2,29 +2,34 @@ import time
 import random
 import functions
 
-def BubbleSort(array,start, end):
-    for i in range (start , end ):                     
+# def BubbleSort(array,start, end):
+#     for i in range (start , end ):                     
                                           
-        for j in range (start , end - i):
-            if (array[j] > array[j + 1] ):
+#         for j in range (start , end - i):
+#             if (array[j] > array[j + 1] ):
                                                
-                       # SWAPPING
-                      array[j], array[j+1] = array[j+1], array[j]      
-                      swapped = True
-        print("array at loop iteration  : ",i+1, " is : ",array)
-        if(swapped == False):
-           break
+#                        # SWAPPING
+#                       array[j], array[j+1] = array[j+1], array[j]      
+#                       swapped = True
+#         print("array at loop iteration  : ",i+1, " is : ",array)
+#         if(swapped == False):
+#            break
                 
-    return array
+#     return array
 
-def BubbleSort(array,start, end):
+# def BubbleSort(array,start, end):
+#     for i in range(start,end):
+#         for j in range(start,end-i):
+#             if( array[j]>array[j+1]):
+#                 array[j],array[j+1] = array[j+1],array[j]
+#     return array
+
+def BubbleSort(array,start,end):
     for i in range(start,end):
-        for j in range(start,end-i):
-            if( array[j]>array[j+1]):
+        for j in range(start,(len(array)-1)-i):
+            if(array[j] > array[j+1]):
                 array[j],array[j+1] = array[j+1],array[j]
     return array
-
-
 
 
 

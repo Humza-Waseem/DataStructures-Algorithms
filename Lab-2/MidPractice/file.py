@@ -20,23 +20,10 @@
 
 
 #     return array
-def SelectionSort(array,start, end): 
-    for i in range(end):
-        min = array[i]
-        for j in range(i + 1, end):
-            if(array[j]  < min):
-                min = array[j]
-                
-        # array[i],min = min, array[i]
-        temp = array[i]
-        arr[i] = min
-        min = temp
-        
-                # array[j],array[i] = min,array[j]
-    return array
-def selection_sort(arr):
+
+def SelectionSort(arr):
     n = len(arr)
-    for i in range(n):
+    for i in range(n):    
         min_idx = i
         for j in range(i+1, n):
             if arr[j] < arr[min_idx]:
@@ -45,9 +32,10 @@ def selection_sort(arr):
 
 # Example usage
 my_list = [64, 34, 25, 12, 22, 11, 90]
-
+start = 0
+end = len(my_list)-1
 print("Original List:", my_list)
-selection_sort(my_list)
+SelectionSort(my_list)
 print("Sorted List:", my_list)
 
 

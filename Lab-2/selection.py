@@ -35,7 +35,7 @@ min = 0
 max = 30000
 n = 5
 array = functions.RandomArrayGenerater(array,min,max,n)
-array =  [5,43,76,2 ]
+array =  [7,6,5,4,3,2,1]
 
 # STARTING AND ENDING INDEX OF ARRAY
 start = 0

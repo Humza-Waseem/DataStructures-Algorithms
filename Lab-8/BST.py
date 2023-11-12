@@ -85,6 +85,7 @@ bst.insert(5000)
 bst.insert(15000)
 bst.insert(3000)
 bst.insert(7000)
+
 bst.inOrderTraversal()
 end = time.time()
 
