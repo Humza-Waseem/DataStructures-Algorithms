@@ -1,0 +1,8 @@
+# To design the BST for the given Condition we can take certain conditions in consideration. 
+# > if the tree is inserting at O(log n), which is the basic Insertion time for a BST, for example a tree has height=8 then in
+# the given condition we have to insert in √logn = √8 = 2.82. This will be difficult to achieve in our average case. 
+
+# > In a balanced BST the Insertion is based on the height which is determined by the number of nodes, Log n is the best
+# achievable height in a balanced BST.
+# > If the height is not log n and it is √logn  then the Tree would not be Balanced. So it is not possible to perform the Insert Operation in 
+# O(√logn) time using a comparison-based algorithm

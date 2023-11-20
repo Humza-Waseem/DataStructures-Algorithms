@@ -105,12 +105,26 @@ class LinkedList:
         self.head = prev
 
 
+    # def MergeSortedList(self,):
+
+
+
 # Example usage:
 linked_list = LinkedList()
+linked_list2 = LinkedList()
+
 linked_list.append(1)
 linked_list.append(2)
 linked_list.append(3)
 linked_list.append(4)
+
+linked_list2.append(1)
+linked_list2.append(3)
+linked_list2.append(6)
+linked_list2.append(8)
+
+
+
 
 index = 3
 linked_list.reverse()

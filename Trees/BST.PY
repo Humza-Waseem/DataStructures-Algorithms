@@ -24,16 +24,27 @@ def inorder_traversal(root):
     print(root.data, end=" ")
     inorder_traversal(root.right)
 
-# Main function
-if __name__ == "__main__":
-    root = None
-    root = insert_bst(root, 5)
-    insert_bst(root, 4)
-    insert_bst(root, 2)
-    insert_bst(root, 7)
-    insert_bst(root, 6)
-    insert_bst(root, 1)
+def increment(value):
+    if(value== 5):
+        return value
+    value+=1
+    increment(value)
+    print(value)
 
-    # Print inorder
-    inorder_traversal(root)
-    print()
+# print(value)
+
+increment(0)
+
+# # Main function
+# if __name__ == "__main__":
+#     root = None
+#     root = insert_bst(root, 5)
+#     insert_bst(root, 4)
+#     insert_bst(root, 2)
+#     insert_bst(root, 7)
+#     insert_bst(root, 6)
+#     insert_bst(root, 1)
+
+#     # Print inorder
+#     inorder_traversal(root)
+#     print()

@@ -64,7 +64,7 @@ InsertionSort(array,start,end)          # PROGRAM FOR SORTING
 end_time = time.time()               # ENDING TIME FOR THE SORTING ALGO
 runtime = end_time - start_time      # CALCULATING THE RUNTIME OF THE ALGO
 
-functions.writeElementsInFile(array)
+# functions.writeElementsInFile(array)
 
 print("----------------------------------------------")
 print("Sorted array by Insertion Sort is : ", array)

@@ -20,7 +20,7 @@ list1 = df['ActivityDay'].values.tolist()
 fig, ax = plt.subplots()
 list2 = df['StepTotal'].values.tolist()
 ax.plot(list1, list2 )
-
+    
 plt.show()
 
 
@@ -34,7 +34,7 @@ plt.show()
 # # list1 = df['TotalTimeInBed'].values.tolist()
 # # fig, ax = plt.subplots()
 # # # list2 = df['StepTotal'].values.tolist()
-+# # # ax.scatter(list1, list2)
+# # # ax.scatter(list1, list2)
 # # ax.scatter(list1)
 # # plt.show()Archive\dailyActivity_merged.csv' )
 # print(df.dtypes)

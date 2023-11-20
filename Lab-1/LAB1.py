@@ -47,11 +47,11 @@
 
 
 # str = ["university","of Engineering","&","technology"]
-# # print(len(str))
-# # # for x in range(len(str)):
-# # #         print(str[x])
+# print(len(str))
+# for x in range(len(str)):
+#         print(str[x])
 
-# # for x in str:
+# for x in str:
 
 # str.reverse()
 # print(str)

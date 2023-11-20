@@ -15,7 +15,7 @@ class BST:
             self.root = new_node    # if Tree is empty, create a Node with given value that will be the root node
         else:
             self.insertRecursive(self.root, value)
-
+    
     def insertRecursive(self, node, value):
         if value < node.value:     # If value is less than the value of the current node value 
 

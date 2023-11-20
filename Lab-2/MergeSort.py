@@ -76,13 +76,17 @@ def merge(left, right):
     return result
 
 
-array = RandomArray(8)
+# array = RandomArray(8)
+
 array = [6,5,4,3,2,1]
+
 start_time = time.time()
-MergeSort(array, 0, len(array)-1)
+array = merge_sort(array)
 end_time = time.time()
 
+
 RUNTIME = end_time - start_time
+
 print("array sorted = ",array)
 print("TOTAL RUNTIME =  ",RUNTIME)
 

@@ -14,7 +14,7 @@ def QuickSort(A,p,r):
     return A
 
 def Partition(A,p,r):
-    x = A[r]
+    x = A[r]  #pivot
     i = p-1
     for j in range(p,r):
 
@@ -47,27 +47,29 @@ def Partition(A,p,r):
 
 
 
-def quick_sort(arr):
-    if len(arr) <= 1:
-        return arr
+# def quick_sort(arr):
+#     if len(arr) <= 1:
+#         return arr
 
-    pivot = arr[len(arr) // 2]
-    left = [x for x in arr if x < pivot]
-    middle = [x for x in arr if x == pivot]
-    right = [x for x in arr if x > pivot]
+#     pivot = arr[len(arr) // 2]
+#     left = [x for x in arr if x < pivot]
+#     middle = [x for x in arr if x == pivot]
+#     right = [x for x in arr if x > pivot]
 
-    return quick_sort(left) + middle + quick_sort(right)
+#     return quick_sort(left) + middle + quick_sort(right)
 
 def RandomArray(size):
-    return [random.randint(0, 200000000) for _ in range(size)]
+    return [random.randint(0, 2000) for _ in range(size)]
 
 # Example usage:
 
-my_list = RandomArray(1000000)
+my_list = RandomArray(100)
 
 # my_list = [3, 6, 8, 10, 1, 2, 1]
 start = time.time()
-sorted_list = quick_sort(my_list)
+p = 0
+r = len(my_list)-1
+sorted_list = QuickSort(my_list,p,r)
 end = time.time()
 finalTime = end-start
 
