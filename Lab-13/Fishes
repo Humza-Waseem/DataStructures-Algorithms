@@ -1,0 +1,6 @@
+You can represent this problem using a graph where each species of fish is a node, and the edges between nodes indicate whether the corresponding fish species can coexist or will fight. 
+Graph coloring problem should be taken in consideration here,,, we want to assign colors (representing the tanks) to the nodes (fish species) in such a way that no adjacent nodes have the same color.
+
+We will use an Undirected Graph here
+If two species can coexist , there is an edge between their nodes,,, otherwise, there is no edge.
+The UnDirected graph shows us that if there is an edge between two nodes,, then One specie will co-exist with the other specie and vice versa. SO there is no need to make a directed graph,, Undirected graph will serve the purpose

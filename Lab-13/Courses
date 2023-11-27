@@ -1,0 +1,3 @@
+For this scenario we will create a Directed Acyclic Graph (DAG). In this way, the nodes of graph will be THe courses and the edges between them represent the course pre-requisite relations. 
+The Direction of edge will represent the Course that is a pre-requisite of the course.
+Suppose that (CS-162) Course is a pre-requisite of (CS-261) ... In this case we can make two Vertices(nodes) and the edge between them will be directed towards (CS-162) ,,, which represents that CS162 must be taken before CS261

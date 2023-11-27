@@ -1,0 +1,4 @@
+For Bacon Number Problem, we have to make Actors as Nodes(vertices) and their relationship with other actors will be represented as an edge. The actors connected to Kevin Bacon's Node will have "bacon Number" = 1
+The edge is marked with NUmbers and the further distance to the node of Kevin Bacon will maean that the Node will have a big "bacon Number" 
+The shorted Distance can be determined if a Node is connected directely to the Node of Kevin Bacon.
+Breadth-first-search (BFS) is a common choice for finding the shortest path in an theis type of Undirected graph.
