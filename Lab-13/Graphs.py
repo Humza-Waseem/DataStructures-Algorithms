@@ -10,55 +10,58 @@
 # print(array) 
 
 
-# class Graph:
-#     def __init__(self, numOfVertices, edges):
-#         self.numOfVertices = numOfVertices
-#         self.data = [[] for i in range(numOfVertices)]
-#         for edge in edges:
-#             self.addEdge(edge[0], edge[1])
+class Graph:
+    def __init__(self, numOfVertices, edges):
+        self.numOfVertices = numOfVertices
+        self.data = [[] for i in range(numOfVertices)]
+        for edge in edges:
+            self.addEdge(edge[0], edge[1])
 
 
-#     def addEdge(self, u, v):
-#         self.data[u].append(v)
-#         self.data[v].append(u)
+    def addEdge(self, u, v): #u and v are the two vertices (nodes) between which the undirected edge is to be added.
+# self.data[u].append(v) adds vertex v to the list of vertices adjacent to vertex u.
+# self.data[v].append(u) adds vertex u to the list of vertices adjacent to vertex v.
+        self.data[u].append(v)
+        self.data[v].append(u)
 
-#     def printGraph(self):
-#         for i in range(len(self.data)):
-#             print(i, ":", self.data[i])
+    def printGraph(self):
+        for i in range(len(self.data)):
+            print(i, ":", self.data[i])
 
-#     def bfs(self, root):
-#         queue = []
-#         discovered = [False] * len(self.data)
-#         distance = [None] * len(self.data)
-#         parent = [None] * len(self.data)
+    def bfs(self, root):
+        queue = []    # Making a queue
+        discovered = [False] * len(self.data)  # discovered nodes
+        distance = [None] * len(self.data)  # distance from the root node
+        parent = [None] * len(self.data)  # parent of each node
 
-#         discovered[root] = True
-#         queue.append(root)
-#         distance[root] = 0
-#         idx = 0
+        discovered[root] = True    # adding the root node to the discovered list, It is now discovered so we don't need to discover it again ,,, we will look for its edges now
 
-#         while idx < len(queue):
-#             current = queue[idx]
-#             idx += 1
-#             for neighbor in self.data[current]:
-#                 if not discovered[neighbor]:
-#                     discovered[neighbor] = True
-#                     queue.append(neighbor)
-#                     distance[neighbor] = distance[current] + 1
-#                     parent[neighbor] = current
-#         print("QUeue:")
-#         print(queue)
-#         print("Discovered:")
-#         print(discovered)
-#         print("Distance:")
-#         print(distance)
-#         print("Parent:")
-#         print(parent)
+        queue.append(root)    # first we add the root node(Vertex) to the queue
+        distance[root] = 0    # distance of the root node from itself is 0
+        idx = 0     # index of the queue
+
+        while idx < len(queue):   # we check if the queue is empty or not,,, if empty then we have discovered all the nodes,,, otheerwise we will continue to discover nodes and add them to the queue,,,,,,
+
+            current = queue[idx]   # we assing the first node in the queue to current
+
+            idx += 1  
+            for neighbor in self.data[current]:   # we look for the edges of the node current and add them to the queue and discovered list
+                if not discovered[neighbor]:  # if the neighbor node is not discovered then we add it to the queue and discovered list
+                    discovered[neighbor] = True
+                    queue.append(neighbor)
+                    distance[neighbor] = distance[current] + 1     # calculating the distance of the neighbor node from the root node
+                    parent[neighbor] = current   # assigning the parent of the neighbor node to the current node
+        print("QUeue:")
+        print(queue)
+        print("Distance:")
+        print(distance)
+        print("Parent:")
+        print(parent)
 
 
-# graph = Graph(5, [(0,1),(0,4),(1,2),(1,3),(1,4),(2,3),(3,4)])
-# graph.printGraph()
-# graph.bfs(0)
+graph = Graph(5, [(0,1),(0,4),(1,2),(1,3),(1,4),(2,3),(3,4)])
+graph.printGraph()
+graph.bfs(0)
 
 # queue = []
 # discovered = [False] * len(graph.data)
@@ -110,7 +113,6 @@
 #     def dfs_util(self, vertex, visited):
 #         visited[vertex] = True
 #         print(vertex, end=' ')
-
 #         for neighbor in self.adjacency_list[vertex]:
 #             if not visited[neighbor]:
 #                 self.dfs_util(neighbor, visited)

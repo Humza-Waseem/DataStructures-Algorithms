@@ -1,0 +1,9 @@
+def DFS(self,g,node):
+    stack = []    # create a stack
+    stack.push(node)    #push root to the stack
+    while(stack is not empty ):   
+        node = stack.pop()  # pop the node and assign it to a variable
+        if node is not discovered:   # now if the node is not in the discovered list then put the node in discovered  list
+             discovered[node] 
+             for edges from node to w in g.adjacentEdges(node) do:  #check all the undiscovered nodes 
+                s.push(w)
