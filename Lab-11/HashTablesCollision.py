@@ -87,6 +87,7 @@ hash = ProbingHashTable()
 
 # Insert a value
 hash.insert('listen', 99)
+# hash.insert('silent', 88)
 
 
 # Check the value

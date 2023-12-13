@@ -79,6 +79,9 @@ def getIndex(dataList,a_string):     # func for getting the index for our key(st
     ListIndex = result % len(dataList)   # result % the length of list
     return ListIndex
 
+    293 % 4096    ==== 293
+    400 % 4096    ==== 400
+ 
 class hashingTable:
     
     def __init__(self, max_size=4096):
@@ -130,6 +133,7 @@ hashing.insert("mama","0323-8878090")
 hashing.insert("papa","0324-9400204")
 
 hashing.update("papa","0300-4426324")
+
 
 
 hashing.update("apap","0302-4426324")     # at papa and apap hashing will be same. i.e the index will be same 

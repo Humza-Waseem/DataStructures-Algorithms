@@ -98,14 +98,21 @@ class LinkedList:
         prev = None
         current = self.head
         while(current):
-            nextNode = current.next
-            current.next = prev
-            prev = current 
-            current = nextNode
-        self.head = prev
+            nextNode = current.next  # assigning current.next to nextNode variable so that we don't lose track of the next node when we change the direction of the pointer
+
+            current.next = prev # changing the direction of the pointer
+
+            prev = current  # moving prev one step forward in the list . In the first step the prev will be None, but in the next step it will be the first node of the list , then the second node and so on.....
+
+            current = nextNode # moving current one step forward in the list. In the first step the current will be the first node of the list, then the second node and so on.....
+
+        self.head = prev   # in the end the prev will contain the last node of the list, so we assign the prev to the head of the list. This will make the last node of the list as the first node of the list and the list will be reversed.
 
 
     # def MergeSortedList(self,):
+    
+
+    
 
 
 
@@ -127,14 +134,15 @@ linked_list2.append(8)
 
 
 index = 3
+linked_list.PrintLinkedList(1)
 linked_list.reverse()
+linked_list.PrintLinkedList(1)
 
 val = linked_list.GetNodeValue(index)
 
 print(f"Node value at Index {index} is {val}")
 Target = 4
-linked_list.PrintLinkedList(1)
 if linked_list.search(Target):
-    print(f"Node with value {Target} found in the linked list.")
+    print(f"Node with value {Target} FOUND in the linked list.")
 else:
-    print(f"Node with value {Target} not found in the linked list.")
+    print(f"Node with value {Target} NOT FOUND in the linked list.")

@@ -49,7 +49,7 @@ def merge_sort(arr):
     left = arr[:mid]
     right = arr[mid:]
 
-    # Recursively sort each half
+    # Recursively divide each half into halves until you reach the base case which is a list with 0 or 1 elements
     left = merge_sort(left)
     right = merge_sort(right)
 

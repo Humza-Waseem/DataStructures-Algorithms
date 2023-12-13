@@ -9,7 +9,7 @@ def insertion_sort(arr):
             j -= 1
         arr[j + 1] = key
 
-def merge_sort(arr, threshold=10):
+def merge_sort(arr, threshold=100):
     if len(arr) <= threshold:
         insertion_sort(arr)
     else:
