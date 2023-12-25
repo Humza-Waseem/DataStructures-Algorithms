@@ -16,7 +16,7 @@ class Stack:
 
     def push(self, data):
         newNode = Node(data)     # Here, a new instance of the Node class is created. This new node is initialized with the data provided.
-        newNode.next = self.top   # Set the next pointer of the new node to point to the current top of the stack. This makes the new node the top of the stack.
+        newNode.next = self.top   # Set the next pointer of the new node to point to the current top of the stack(the top of stack which was before pushing newNode ). This makes the new node the top of the stack.
 
         self.top = newNode   # new node will now become Top of the stack
 

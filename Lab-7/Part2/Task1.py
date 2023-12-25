@@ -51,7 +51,7 @@ def reversedWords(sentence):
 
     
 
-    print(stack)
+    # print(stack)
 
 
 

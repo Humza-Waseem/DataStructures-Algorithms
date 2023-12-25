@@ -20,21 +20,23 @@ def RandomArray(size):
 
 
 def recursiveDividing(array):
-        print(array)
+        if len(array) <= 1:
+            print("array : ",array)
+            return array        
+
+        print("array : ",array)
         mid = len(array) // 2
         left = array[:mid]
         right = array[mid:]
 
-        
         recursiveDividing(left)
-        
         recursiveDividing(right)
+ 
+
         
 
-
-
-
-
-array = RandomArray(100)
+# array = RandomArray(100)
+array = [8,7,6,5,4,3,2,1]
 recursiveDividing(array)
+print(array)
 

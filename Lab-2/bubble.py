@@ -32,6 +32,23 @@ def BubbleSort(array,start,end):
     return array
 
 
+def BubbleSort(arr,start,end):
+    n = len(arr)
+    
+    # Traverse through all even indices
+    for i in range(0, n, 2):
+        
+        
+        for j in range(0, n-i-2, 2):
+            
+            # Traverse the array from 0 to n-i-2
+            # Swap if the element found is greater than the next element
+            if arr[j] > arr[j+2]:
+                arr[j], arr[j+2] = arr[j+2], arr[j]
+    
+    return arr
+
+
 
 
     

@@ -1,4 +1,4 @@
-#############################    PRINTING THE 2D-ARRAY / MATRIX   ##############################
+# ############################    PRINTING THE 2D-ARRAY / MATRIX   ##############################
 # def printMatrix(A, starting_index, rows, columns):
 #     row_start, col_start = starting_index
 #     for i in range(rows):
@@ -32,12 +32,14 @@
 #              [7,9,11]]
 # B = [[2,4,6],
 #              [8,10,12]]
-# C = MatAdd(A, B)
+# # C = MatAdd(A, B)
 # n = len(A)
 # print("Length : ",n)
+
 # print(C)
 
-# #############################    MatAddPartial 2 Matrices   ##############################
+
+# # #############################    MatAddPartial 2 Matrices   ##############################
 # def MatAddPartial(A,B,start,size):
 #     first,second  =  start
 #     for i in range(size):
@@ -52,3 +54,4 @@
 # size = 2
 
 # MatAddPartial(A, B, start, size)
+

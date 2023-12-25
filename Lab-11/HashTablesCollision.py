@@ -20,26 +20,27 @@ def getIndex(dataList,a_string):     # func for getting the index for our key(st
 def get_valid_index(dataList, key):
     # Start with the index returned by get_index
     idx = getIndex(dataList,key)
+    return idx
     
-    while True:
-        # Get the key-value pair stored at idx
-        kv = dataList[idx]
+    # while True:
+    #     # Get the key-value pair stored at idx
+    #     kv = dataList[idx]
         
-        # If it is None, return the index
-        if kv:
-            return idx
+    #     # If it is None, return the index
+    #     if kv:
+    #         return idx
         
-        # If the stored key matches the given key, return the index
-        k, v = kv[0],kv[1]
-        if k == key:
-            return idx
+    #     # If the stored key matches the given key, return the index
+    #     k, v = kv[0],kv[1]
+    #     if k == key:
+    #         return idx
         
-        # Move to the next index
-        idx += 1
+    #     # Move to the next index
+    #     idx += 1
         
-        # Go back to the start if you have reached the end of the array
-        if idx == len(dataList):
-            idx = 0
+    #     # Go back to the start if you have reached the end of the array
+    #     if idx == len(dataList):
+    #         idx = 0
 
 
 

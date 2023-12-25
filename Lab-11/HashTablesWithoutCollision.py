@@ -79,8 +79,8 @@ def getIndex(dataList,a_string):     # func for getting the index for our key(st
     ListIndex = result % len(dataList)   # result % the length of list
     return ListIndex
 
-    293 % 4096    ==== 293
-    400 % 4096    ==== 400
+    # 293 % 4096    ==== 293
+    # 400 % 4096    ==== 400
  
 class hashingTable:
     

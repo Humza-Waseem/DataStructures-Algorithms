@@ -41,7 +41,7 @@ def RandomArray(size):
 #         j += 1
 #         k += 1
 def merge_sort(arr):
-    if len(arr) <= 1:  # Base case: If the list has 0 or 1 elements, it is already sorted.
+    if len(arr) <= 1:  # Base case: If the list has 0 or 1 elements, it is already sorted. That is the time to stop recursive call as the base case     is reached
         return arr
 
     # Split the list into two halves
