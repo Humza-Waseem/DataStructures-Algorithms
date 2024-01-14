@@ -41,3 +41,4 @@ def asc_selection_sort(datas, col):
     return data
 
 
+
